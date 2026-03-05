@@ -77,6 +77,8 @@ def _seed_admin():
         print(f"⚠️  Admin seed skipped: {e}")
 
 
+# Module-level instance so gunicorn can find it with `gunicorn app:app`
+app = create_app()
+
 if __name__ == '__main__':
-    app = create_app()
     app.run(debug=True, host='0.0.0.0', port=5000)
